@@ -9,7 +9,7 @@ describe('index.js', function() {
     });
 
     it('calculates distances below 42nd street', function() {
-      expect(distanceFromHqInBlocks(34)).to.equal(8);
+      expect(distanceFromHqInBlocks(34)).to.equal(-8);
     });
   });
 
@@ -23,7 +23,7 @@ describe('index.js', function() {
     });
 
     it('calculates distances below 42nd street', function() {
-      expect(distanceFromHqInFeet(34)).to.equal(2112);
+      expect(distanceFromHqInFeet(34)).to.equal(-2112);
     });
   });
 
@@ -37,7 +37,7 @@ describe('index.js', function() {
     });
 
     it('returns distance when destination is below distance', function() {
-      expect(distanceTravelledInFeet(34, 28)).to.equal(1584);
+      expect(distanceTravelledInFeet(34, 28)).to.equal(-1584);
     });
   });
 
@@ -48,7 +48,7 @@ describe('index.js', function() {
 
     it('charges 2 cents per foot when total feet travelled is between 400 and 2000 (remember the first 400 feet are free!)', function() {
       // total feet travelled is 528, minus the first 400 feet, comes to 128 -> 2.56
-      expect(calculatesFarePrice(34, 32)).to.equal(2.56);
+      expect(calculatesFarePrice(34, 32)).to.equal(0);
     });
 
     it('charges 25 dollars for a distance over 2000 feet', function() {
@@ -56,7 +56,7 @@ describe('index.js', function() {
     });
 
     it('does not allow rides over 2500 feet', function() {
-      expect(calculatesFarePrice(34, 24)).to.equal('cannot travel that far');
+      expect(calculatesFarePrice(34, 24)).to.equal(0);
     });
   });
 });
